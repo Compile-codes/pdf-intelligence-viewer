@@ -1,0 +1,866 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #162033;
+  background: #eef2f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1024px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.landing {
+  min-height: 100vh;
+  padding: 56px 24px;
+  display: grid;
+  place-items: center;
+  gap: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.12), transparent 30rem),
+    #eef2f7;
+}
+
+.dropzone {
+  width: min(960px, 100%);
+  padding: 48px;
+  border: 1px solid rgba(30, 41, 59, 0.12);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+  text-align: center;
+  backdrop-filter: blur(18px);
+}
+
+.dropzoneActive {
+  outline: 4px solid rgba(37, 99, 235, 0.18);
+}
+
+.brandMark {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: linear-gradient(135deg, #1d4ed8, #0f172a);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  color: #2563eb;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(48px, 7vw, 82px);
+  letter-spacing: -0.08em;
+}
+
+.subtitle {
+  margin: 18px auto 30px;
+  max-width: 720px;
+  color: #475569;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.uploadButton,
+.secondaryButton,
+.iconButton {
+  border: 0;
+  border-radius: 14px;
+  background: #0f172a;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-weight: 750;
+}
+
+.uploadButton {
+  position: relative;
+  padding: 14px 22px;
+  overflow: hidden;
+}
+
+.uploadButton input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.secondaryButton {
+  padding: 10px 14px;
+  background: #1e293b;
+  white-space: nowrap;
+}
+
+.iconButton {
+  width: 36px;
+  height: 36px;
+  background: #f8fafc;
+  color: #1e293b;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.error {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.featureCard {
+  padding: 18px;
+  border-radius: 18px;
+  text-align: left;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.featureCard h3,
+.featureCard p {
+  margin: 0;
+}
+
+.featureCard h3 {
+  font-size: 15px;
+}
+
+.featureCard p {
+  margin-top: 7px;
+  color: #64748b;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.recentDocs {
+  width: min(960px, 100%);
+  padding: 24px;
+  border-radius: 24px;
+  background: white;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.recentDocs h2 {
+  margin: 0 0 14px;
+  font-size: 20px;
+}
+
+.recentList {
+  display: grid;
+  gap: 10px;
+}
+
+.recentItem {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #f8fafc;
+  color: #334155;
+}
+
+.recentItem span {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.viewerShell {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  background: #dbe2ea;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto auto minmax(320px, 1.1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.93);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.toolbarLeft,
+.zoomControls,
+.pageControls,
+.toolbarRight,
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.fileMeta {
+  min-width: 0;
+}
+
+.fileMeta strong {
+  display: block;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileMeta span,
+.wordCount {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.pageControls input {
+  width: 54px;
+  padding: 7px 8px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.searchBox {
+  min-width: 280px;
+  padding: 0 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.searchBox input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  padding: 10px 4px;
+  background: transparent;
+}
+
+.searchMeta {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.viewerBody {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+
+.sidebar {
+  min-height: 0;
+  overflow: auto;
+  background: #f8fafc;
+  border-right: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.sidebarTabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 10px;
+  background: rgba(248, 250, 252, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.tab {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 12px;
+  background: white;
+  color: #475569;
+  padding: 9px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.tab.active {
+  color: white;
+  background: #0f172a;
+}
+
+.sidebarSection {
+  padding: 10px 12px 0;
+}
+
+.sidebarSection h3 {
+  margin: 4px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #334155;
+  font-size: 14px;
+}
+
+.searchResults {
+  display: grid;
+  gap: 8px;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.searchResult {
+  text-align: left;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 14px;
+  background: white;
+  padding: 10px;
+}
+
+.searchResult strong {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.searchResult span {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.searchResult p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.thumbnailList,
+.outlineList,
+.insightsPanel {
+  padding: 12px;
+}
+
+.thumbnail {
+  width: 100%;
+  position: relative;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+}
+
+.thumbnail.active {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+}
+
+.thumbnail canvas {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: white;
+}
+
+.thumbnailSkeleton {
+  height: 150px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e2e8f0, #f8fafc, #e2e8f0);
+}
+
+.pageLabel {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pageLabel.active {
+  color: white;
+  background: #2563eb;
+}
+
+.outlineItem {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 9px 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-align: left;
+  border-radius: 10px;
+  color: #334155;
+}
+
+.outlineItem:hover {
+  background: #e2e8f0;
+}
+
+.sidebarPadding {
+  padding: 24px;
+}
+
+.emptyState {
+  color: #64748b;
+}
+
+.metric,
+.insightCard {
+  padding: 16px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  margin-bottom: 10px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric span {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 18px;
+}
+
+.insightCard h3,
+.insightCard p {
+  margin: 0;
+}
+
+.insightCard p {
+  margin-top: 8px;
+  color: #64748b;
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.pdfScrollArea {
+  min-height: 0;
+  overflow: auto;
+  padding: 34px 24px 60px;
+}
+
+.pageStack {
+  width: max-content;
+  min-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+  justify-items: center;
+}
+
+.pdfPageShell {
+  position: relative;
+  scroll-margin-top: 24px;
+}
+
+.pageNumberBadge {
+  position: absolute;
+  top: -18px;
+  left: 16px;
+  z-index: 4;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: white;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.pdfPage {
+  position: relative;
+  background: white;
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.24);
+  overflow: hidden;
+}
+
+.pdfCanvas,
+.textLayer,
+.annotationLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.pdfCanvas {
+  z-index: 1;
+}
+
+.textLayer {
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0.18;
+}
+
+.textSpan {
+  position: absolute;
+  color: transparent;
+  white-space: pre;
+  transform-origin: 0 0;
+  user-select: text;
+}
+
+.textSpan::selection {
+  background: rgba(37, 99, 235, 0.32);
+  color: transparent;
+}
+
+.textSpan.searchHit {
+  background: rgba(59, 130, 246, 0.28);
+  border-radius: 2px;
+}
+
+.annotationLayer {
+  z-index: 3;
+  pointer-events: none;
+}
+
+.highlightAnnotation {
+  position: absolute;
+  border-radius: 3px;
+  pointer-events: auto;
+  border: 1px solid rgba(202, 138, 4, 0.18);
+}
+
+.deleteAnnotation {
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  background: #b91c1c;
+  color: white;
+}
+
+.highlightAnnotation:hover .deleteAnnotation {
+  display: grid;
+}
+
+.pageSkeleton {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: #64748b;
+  background: linear-gradient(90deg, #f1f5f9, #fff, #f1f5f9);
+}
+
+.muted {
+  color: #64748b;
+}
+
+@media (max-width: 1180px) {
+  .toolbar {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .searchBox,
+  .toolbarRight {
+    display: none;
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+/* ── Chat panel ─────────────────────────────────────── */
+.chatPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  color: var(--text-muted, #888);
+  text-align: center;
+  padding: 24px;
+}
+
+.chatHint {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.chatBubble {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.chatBubble p { margin: 0; }
+
+.chatBubble--user {
+  background: #e8f0fe;
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+.chatBubble--assistant {
+  background: #f1f3f4;
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+
+.chatCitations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.citationChip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid #c5cae9;
+  background: #e8eaf6;
+  color: #3949ab;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.citationChip:hover { background: #c5cae9; }
+
+.chatInputRow {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.chatInput:focus { border-color: #3949ab; }
+
+.chatSend {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #3949ab;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.chatSend:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.chatSpinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.tabDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34a853;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+/* ── Chat panel ─────────────────────────────────────── */
+.chatPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  color: #888;
+  text-align: center;
+  padding: 24px;
+}
+
+.chatHint {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.chatBubble {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.chatBubble p { margin: 0; }
+
+.chatBubble--user {
+  background: #e8f0fe;
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+}
+
+.chatBubble--assistant {
+  background: #f1f3f4;
+  align-self: flex-start;
+  border-bottom-left-radius: 3px;
+}
+
+.chatCitations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.citationChip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid #c5cae9;
+  background: #e8eaf6;
+  color: #3949ab;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.citationChip:hover { background: #c5cae9; }
+
+.chatInputRow {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.chatInput:focus { border-color: #3949ab; }
+
+.chatSend {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #3949ab;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.chatSend:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.chatSpinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.tabDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34a853;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+/* citation nav helper */
+.citationChip[data-page] {
+  cursor: pointer;
+}
