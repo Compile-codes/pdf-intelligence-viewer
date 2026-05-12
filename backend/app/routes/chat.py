@@ -63,6 +63,25 @@ async def chat(document_id: str, body: ChatRequest):
 
     chunks = await retrieve_chunks(document_id, expanded_query)
 
+    # Always pin the page 1 Key Terms table chunk so key facts are always in context.
+    # Key terms (location, salary, manager etc.) live on page 1 but may not rank
+    # highly for queries that use different vocabulary (e.g. "address" vs "location").
+    page1_key_terms = await pool.fetch(
+        """SELECT page_number, text, 1.0 AS similarity
+           FROM chunks
+           WHERE document_id = $1
+             AND page_number = 1
+             AND text LIKE '[Table on page 1]%'
+             AND text LIKE '%Location%'
+           LIMIT 1""",
+        document_id
+    )
+
+    # Merge pinned chunks at the front, avoiding duplicates
+    existing_texts = {c["text"] for c in chunks}
+    pinned = [c for c in page1_key_terms if c["text"] not in existing_texts]
+    chunks = pinned + list(chunks)[:7]  # keep total at 8 max
+
     # Debug — remove after confirming retrieval works
     print("=== RETRIEVED CHUNKS ===")
     for c in chunks:
